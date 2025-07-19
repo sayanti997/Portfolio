@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sayanti Pan | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="glass">
+    <h1 class="logo">Sayanti Pan</h1>
+    <nav>
+      <ul>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="Sayanti_Pan_Resume.pdf" download class="btn">Download Resume</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" class="btn">🌙 Toggle Theme</button>
+  </header>
+
+  <section id="home" class="hero glass">
+    <img src="Sayanti_BCA_casual.jpg" alt="Sayanti Pan" class="profile-pic" />
+    <h2>Hello, I'm <span>Sayanti Pan</span></h2>
+    <p>Web Developer | Java & C Programmer | Future Full Stack Engineer</p>
+  </section>
+
+  <section id="skills" class="glass">
+    <h2>My Skills</h2>
+    <ul class="skills-list">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>Java</li>
+      <li>C</li>
+      <li>C++</li>
+      <li>Git & GitHub</li>
+    </ul>
+  </section>
+
+  <section id="projects" class="glass">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Amazon Clone</h3>
+        <p>HTML & CSS static clone of Amazon homepage.</p>
+        <a href="https://github.com/sayanti997/amazon-clone-html-css.git" target="_main">View Project</a>
+      </div>
+      <div class="project-card">
+        <h3>Number Game</h3>
+        <p>Number Game using JAVA.</p>
+        <a href="https://github.com/sayanti997/Number-Game.git" target="_main">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="certificates" class="glass">
+    <h2>Certificate</h2>
+    <div class="certificate-list">
+      <div class="cert">
+        <p>Project Management Foundations</p>
+        <a href="CertificateOfCompletion_Project Management Foundations.pdf">View Certificate</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="glass">
+    <h2>Contact Me</h2>
+     <img src="Sayanti_BCA_casual.jpg" alt="Sayanti Pan" class="profile-pic" />
+    <p>Email: <a href="mailto:sayantipan@email.com">sayantipan2005@email.com</a></p>
+    <p>Phone: +91-9876543210</p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/sayanti-pan-135484323?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_main">linkedin.com/in/sayantipan</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Sayanti Pan. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+
+    function setTheme(theme) {
+      const root = document.documentElement;
+      if (theme === 'light') {
+        root.style.setProperty('--bg-color', '#f0f0f0');
+        root.style.setProperty('--text-color', '#111');
+        root.style.setProperty('--card-color', 'rgba(0, 0, 0, 0.05)');
+        root.style.setProperty('--accent-color', '#007bff');
+        toggleBtn.textContent = '🌙 Dark Mode';
+      } else {
+        root.style.setProperty('--bg-color', '#1e1e2f');
+        root.style.setProperty('--text-color', '#fff');
+        root.style.setProperty('--card-color', 'rgba(255, 255, 255, 0.05)');
+        root.style.setProperty('--accent-color', '#00ffc3');
+        toggleBtn.textContent = '☀️ Light Mode';
+      }
+      localStorage.setItem('theme', theme);
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = localStorage.getItem('theme') || 'dark';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      setTheme(newTheme);
+    });
+
+    window.onload = () => {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      setTheme(savedTheme);
+    };
+  </script>
+</body>
+</html>
